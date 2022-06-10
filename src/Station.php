@@ -15,7 +15,7 @@ class Station
     {
         return $this->name;
     }
-    
+
     public function getDistanceFromStartStation(): int
     {
         return $this->distanceFromStartStation;

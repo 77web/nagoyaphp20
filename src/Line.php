@@ -13,8 +13,14 @@ class Line
     ) {
     }
 
-    public function getStations(): array
+    public function getStation(string $name): Station
     {
-        return $this->stations;
+        foreach ($this->stations as $station) {
+            if ($station->getName() === $name) {
+                return $station;
+            }
+        }
+
+        throw new Exception\LogicException(sprintf('No station found for name "%s"', $name));
     }
 }
