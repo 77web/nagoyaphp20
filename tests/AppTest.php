@@ -16,7 +16,16 @@ class AppTest extends TestCase
      */
     public function test(string $input, int $expect): void
     {
-        $app = new App();
+        $app = new App(
+            new LineBuilder(),
+            new DistancePointCalculator(),
+            new SubwayFeeTable([
+                new SubwayFeeDefinition(1, 210),
+                new SubwayFeeDefinition(2, 240),
+                new SubwayFeeDefinition(3, 270),
+                new SubwayFeeDefinition(4, 300),
+            ]),
+        );
         $this->assertEquals($expect, $app->run($input));
     }
 
